@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CountryComparation.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CountryComparation = () => {
   const [countriesList, setCountriesList] = useState([]);
@@ -8,6 +9,7 @@ const CountryComparation = () => {
   const [country2, setCountry2] = useState('');
   const [suggestions1, setSuggestions1] = useState([]);
   const [suggestions2, setSuggestions2] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -51,8 +53,7 @@ const CountryComparation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle the comparison logic here
-    console.log('Comparing:', country1, 'and', country2);
+    navigate(`/compare?country1=${country1}&country2=${country2}`);
   };
 
   return (

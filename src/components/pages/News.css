@@ -1,8 +1,28 @@
 .news-container {
-    max-width: 800px;
-    margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-    text-align: left; /* Pastikan semua teks berada di sebelah kiri */
-}
-
+  }
+  
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .news-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .date {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .loading, .error {
+    font-size: 1.5em;
+    color: #888;
+  }
+  
