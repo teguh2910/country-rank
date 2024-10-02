@@ -18,7 +18,7 @@ const News = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${import.meta.env.VITE_NYT_API_KEY}`);
+        const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${import.meta.env.VITE_API_KEY}`);
         setArticles(response.data.results);
       } catch (err) {
         setError('Error fetching news articles.');
