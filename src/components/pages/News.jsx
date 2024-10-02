@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './News.css'; // Adjust the path if necessary
+import './News.css';
 
 const NewsItem = ({ title, url, published_date, abstract }) => (
   <div className="news-item">
@@ -18,7 +18,7 @@ const News = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${apiKey}');
+        const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${import.meta.env.VITE_NYT_API_KEY}`);
         setArticles(response.data.results);
       } catch (err) {
         setError('Error fetching news articles.');
@@ -34,7 +34,6 @@ const News = () => {
   return (
     <div className="news-container">
       <h1>Latest News</h1>
-      <br />
       <div className="news-grid">
         {articles.map((article, index) => (
           <NewsItem key={index} title={article.title} url={article.url} published_date={article.published_date} abstract={article.abstract} />
